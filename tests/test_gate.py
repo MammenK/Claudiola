@@ -62,6 +62,7 @@ def test_output_keys_exact(cfg, data, now_near_deadline):
 
 
 def test_cli_prints_json_and_exit_code(fixture_dir, capsys):
+    # stdout carries exactly one JSON object; the reason goes to the stderr log
     argv = ["--config", str(fixture_dir / "config.yaml"), "--data-dir", str(fixture_dir)]
     assert gate.main(argv + ["--now", "2026-09-25T07:00:00Z"]) == 0
     out = json.loads(capsys.readouterr().out.strip())

@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import logging
 from datetime import datetime
 from pathlib import Path
 
@@ -26,6 +27,8 @@ from scripts.common import (
     setup_logging,
     utcnow,
 )
+
+log = logging.getLogger("gate")
 
 
 def evaluate(cfg: dict, bootstrap: dict, fixtures: list, history: dict, now: datetime) -> dict:
@@ -89,6 +92,7 @@ def main(argv=None) -> int:
         load_json(data_dir, FILE_HISTORY),
         now,
     )
+    log.info("gate %s: %s", "open" if result["proceed"] else "closed", result["reason"])
     print(json.dumps(result))
     return 0 if result["proceed"] else 1
 

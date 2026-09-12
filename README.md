@@ -58,6 +58,7 @@ Set `team_id` (and any `h2h_league_ids`) in `config.yaml`, then:
 
 ```
 make brief      # fetch → gate → digest → print brief.md
+make ci-brief   # the same without the print; what the Actions job runs
 make fetch      # just refresh data/ (cached 6 h; `make fetch-force` to bypass)
 make gate       # print the gate JSON
 make digest     # write brief.md from data/
@@ -65,8 +66,12 @@ make routine    # regenerate ROUTINE.md from modules/
 make test       # pytest, fully offline
 ```
 
-`make brief` stops cleanly when the gate is closed (deadline more than
-`max_days_to_deadline` away, or already passed) and prints nothing.
+The pipeline is defined once, in `ci-brief`; `brief` just adds the print.
+`ci-brief` writes the gate's JSON to `data/gate.json` (gitignored) and, when
+the gate is closed (deadline more than `max_days_to_deadline` away, or
+already passed), stops there with exit 0 and leaves `brief.md` untouched.
+So `make brief` prints nothing that week, and the workflow reads
+`data/gate.json` to decide whether there is anything to commit.
 
 Every script accepts `--data-dir`, `--config` and `--now <ISO>` so you can
 run against the fixture: 
@@ -128,7 +133,8 @@ read every run. Therefore:
 - No workflow step may `cat`, `tail`, `head` or `echo` the contents of
   `brief.md`, `data/*.json` or `state/overrides.md`.
 - `make brief` prints locally because your terminal is yours. The CI job
-  does not use it.
+  runs `make ci-brief` instead: the same fetch → gate → digest, minus the
+  print. A test fails if the workflow ever calls `make brief`.
 
 `tests/test_hygiene.py` enforces the mechanical parts: the gitignore
 entries, no email-like or token-like strings in tracked files, workflow
@@ -169,8 +175,8 @@ line to append to `state/decisions.md`.
 ## How the weekly run works
 
 1. Friday 07:00 UTC (or manual dispatch), job `build`, `contents: read`:
-   fetch → gate → digest. If the gate exits 1, the run ends there with no
-   commit and no failure.
+   `make ci-brief` (fetch → gate → digest). If the gate is closed, the run
+   ends there with no commit and no failure.
 2. Job `commit`, `contents: write`: downloads `brief.md` from the build job
    and commits it to `main` only if it changed. The commit identity is
    GitHub's public Actions bot account.

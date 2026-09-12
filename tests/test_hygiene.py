@@ -88,7 +88,14 @@ def test_workflow_never_prints_file_contents():
     allowed = ('echo "proceed=', 'echo "Gate closed', 'echo "brief.md unchanged', 'echo "committed brief.md')
     for line in code.splitlines():
         if "echo" in line:
-            assert line.strip().startswith(allowed), line
+            assert line[line.index("echo"):].startswith(allowed), line
+
+
+def test_workflow_runs_ci_brief_not_brief():
+    wf = yaml.safe_load(WORKFLOW.read_text())
+    runs = [s.get("run", "") for s in wf["jobs"]["build"]["steps"]]
+    assert any("make ci-brief" in r for r in runs)
+    assert not any(re.search(r"make\s+brief\b", r) for r in runs)
 
 
 def test_workflow_gate_stops_the_commit():
