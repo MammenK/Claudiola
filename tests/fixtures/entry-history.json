@@ -1,0 +1,96 @@
+{
+ "chips": [
+  {
+   "event": 3,
+   "name": "wildcard",
+   "time": "2026-08-28T18:00:00Z"
+  }
+ ],
+ "current": [
+  {
+   "bank": 12,
+   "event": 1,
+   "event_transfers": 0,
+   "event_transfers_cost": 0,
+   "overall_rank": 812345,
+   "points": 53,
+   "points_on_bench": 4,
+   "rank": 901000,
+   "rank_sort": 901000,
+   "total_points": 53,
+   "value": 1003
+  },
+  {
+   "bank": 12,
+   "event": 2,
+   "event_transfers": 1,
+   "event_transfers_cost": 0,
+   "overall_rank": 812345,
+   "points": 56,
+   "points_on_bench": 4,
+   "rank": 902000,
+   "rank_sort": 902000,
+   "total_points": 109,
+   "value": 1003
+  },
+  {
+   "bank": 12,
+   "event": 3,
+   "event_transfers": 1,
+   "event_transfers_cost": 0,
+   "overall_rank": 812345,
+   "points": 59,
+   "points_on_bench": 4,
+   "rank": 903000,
+   "rank_sort": 903000,
+   "total_points": 168,
+   "value": 1003
+  },
+  {
+   "bank": 12,
+   "event": 4,
+   "event_transfers": 1,
+   "event_transfers_cost": 0,
+   "overall_rank": 812345,
+   "points": 62,
+   "points_on_bench": 4,
+   "rank": 904000,
+   "rank_sort": 904000,
+   "total_points": 230,
+   "value": 1003
+  },
+  {
+   "bank": 12,
+   "event": 5,
+   "event_transfers": 1,
+   "event_transfers_cost": 0,
+   "overall_rank": 812345,
+   "points": 65,
+   "points_on_bench": 4,
+   "rank": 905000,
+   "rank_sort": 905000,
+   "total_points": 295,
+   "value": 1003
+  },
+  {
+   "bank": 12,
+   "event": 6,
+   "event_transfers": 1,
+   "event_transfers_cost": 0,
+   "overall_rank": 812345,
+   "points": 68,
+   "points_on_bench": 4,
+   "rank": 906000,
+   "rank_sort": 906000,
+   "total_points": 363,
+   "value": 1003
+  }
+ ],
+ "past": [
+  {
+   "rank": 350000,
+   "season_name": "2025/26",
+   "total_points": 2301
+  }
+ ]
+}

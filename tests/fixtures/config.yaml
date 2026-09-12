@@ -1,0 +1,4 @@
+team_id: 12345
+h2h_league_ids: [1001, 1002]
+half_deadline_gw: 19
+max_days_to_deadline: 8
