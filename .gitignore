@@ -1,0 +1,10 @@
+# Local-only. Never committed.
+state/overrides.md
+.env
+data/*.json
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/

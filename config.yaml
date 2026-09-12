@@ -1,0 +1,19 @@
+# Fantasy Premier League weekly brief — configuration.
+# Everything here is public information (visible on fantasy.premierleague.com).
+# Do NOT put credentials, tokens or email addresses in this file.
+
+# Your FPL entry id: the number in the URL on your "Points" page
+# (https://fantasy.premierleague.com/entry/<team_id>/event/<gw>).
+team_id: 0
+
+# Head-to-head league ids to report on (the number in the league URL).
+h2h_league_ids: []
+
+# The last gameweek of the first half of the season. First-half chips
+# (wildcard, free hit, bench boost, triple captain) expire after this
+# gameweek's deadline; the second set is available from the next gameweek.
+half_deadline_gw: 19
+
+# The gate only lets a brief through when the next deadline is at most this
+# many days away.
+max_days_to_deadline: 8
