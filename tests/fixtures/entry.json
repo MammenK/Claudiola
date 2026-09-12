@@ -1,0 +1,40 @@
+{
+ "current_event": 6,
+ "favourite_team": 12,
+ "id": 12345,
+ "joined_time": "2026-07-20T09:00:00Z",
+ "kit": null,
+ "last_deadline_bank": 12,
+ "last_deadline_total_transfers": 4,
+ "last_deadline_value": 1003,
+ "leagues": {
+  "classic": [],
+  "cup": null,
+  "h2h": [
+   {
+    "entry_last_rank": 3,
+    "entry_rank": 2,
+    "id": 1001,
+    "name": "Office H2H"
+   },
+   {
+    "entry_last_rank": 5,
+    "entry_rank": 5,
+    "id": 1002,
+    "name": "Old Boys H2H"
+   }
+  ]
+ },
+ "name": "Fixture FC",
+ "name_change_blocked": false,
+ "player_first_name": "Fixture",
+ "player_last_name": "Manager",
+ "player_region_id": 229,
+ "player_region_iso_code_short": "EN",
+ "player_region_name": "England",
+ "started_event": 1,
+ "summary_event_points": 61,
+ "summary_event_rank": 1500000,
+ "summary_overall_points": 331,
+ "summary_overall_rank": 812345
+}
