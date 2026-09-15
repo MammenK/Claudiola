@@ -54,7 +54,8 @@ Python 3.11. Dependencies are `requests` and `pyyaml` only.
 python -m pip install -r requirements-dev.txt
 ```
 
-Set `team_id` (and any `h2h_league_ids`) in `config.yaml`, then:
+Set `team_id` in `config.yaml`. H2H leagues are discovered from the entry
+automatically; list `h2h_league_ids` only to restrict to some of them. Then:
 
 ```
 make brief      # fetch → gate → digest → print brief.md

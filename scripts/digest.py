@@ -44,6 +44,7 @@ from scripts.common import (
     file_h2h_matches,
     file_h2h_standings,
     gameweeks_to_expiry,
+    h2h_league_ids,
     half_of,
     iso_z,
     last_event_id,
@@ -168,12 +169,11 @@ def captain_candidates(rows: list[dict], n: int = 3) -> list[dict]:
     return fit[:n]
 
 
-def h2h_section(cfg: dict, data_dir: Path, gw: int) -> tuple[list[str], list[list]]:
+def h2h_section(cfg: dict, entry: dict, data_dir: Path, gw: int) -> tuple[list[str], list[list]]:
     """Rows for the H2H table: one per league."""
     team_id = int(cfg["team_id"])
     rows = []
-    for lid in cfg.get("h2h_league_ids") or []:
-        lid = int(lid)
+    for lid in h2h_league_ids(cfg, entry):
         matches = load_json_optional(data_dir, file_h2h_matches(lid))
         standings = load_json_optional(data_dir, file_h2h_standings(lid))
         if matches is None or standings is None:
@@ -329,7 +329,7 @@ def build_brief(cfg: dict, data_dir: Path, now: datetime, overrides_path: Path |
     out.append("")
 
     # H2H.
-    headers, h2h_rows = h2h_section(cfg, data_dir, gw)
+    headers, h2h_rows = h2h_section(cfg, entry, data_dir, gw)
     out.append(f"## H2H (GW{gw})")
     if h2h_rows:
         out.append(table(headers, h2h_rows))

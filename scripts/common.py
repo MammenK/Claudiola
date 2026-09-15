@@ -101,6 +101,19 @@ def load_json_optional(data_dir: Path | str, name: str):
         return json.load(fh)
 
 
+def h2h_league_ids(cfg: dict, entry: dict) -> list[int]:
+    """H2H leagues to report on.
+
+    An explicit non-empty `h2h_league_ids` in config.yaml wins. Otherwise every
+    H2H league the entry belongs to, straight from /api/entry/{id}/.
+    """
+    configured = cfg.get("h2h_league_ids") or []
+    if configured:
+        return [int(x) for x in configured]
+    leagues = (entry.get("leagues") or {}).get("h2h") or []
+    return [int(l["id"]) for l in leagues if "id" in l]
+
+
 # --- gameweek / chip helpers -------------------------------------------------
 
 def next_event(bootstrap: dict) -> dict | None:

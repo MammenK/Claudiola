@@ -109,6 +109,23 @@ def test_fetch_all_hits_every_endpoint(tmp_path, cfg):
     ])
 
 
+def test_fetch_all_discovers_h2h_leagues_from_entry(tmp_path, cfg):
+    ok = lambda body: FakeResponse(200, body)  # noqa: E731
+    cfg = {**cfg, "h2h_league_ids": []}
+    session = FakeSession({
+        "/bootstrap-static/": ok('{"elements": []}'),
+        "/fixtures/": ok("[]"),
+        "/entry/12345/": ok('{"current_event": 6, "leagues": {"h2h": [{"id": 777, "name": "x"}]}}'),
+        "/entry/12345/history/": ok('{"current": [], "chips": []}'),
+        "/entry/12345/event/6/picks/": ok('{"picks": []}'),
+        "/leagues-h2h-matches/league/777/?page=1&entry=12345": ok('{"results": []}'),
+        "/leagues-h2h/777/standings/": ok('{"standings": {"results": []}}'),
+    })
+    fetch.fetch_all(cfg, tmp_path, session=session)
+    assert (tmp_path / "h2h-matches-777.json").exists()
+    assert (tmp_path / "h2h-standings-777.json").exists()
+
+
 def test_fetch_all_skips_picks_preseason(tmp_path, cfg, caplog):
     ok = lambda body: FakeResponse(200, body)  # noqa: E731
     cfg = {**cfg, "h2h_league_ids": []}

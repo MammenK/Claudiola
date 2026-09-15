@@ -39,3 +39,11 @@ def test_load_config_requires_team_id(tmp_path):
 
     with pytest.raises(SystemExit):
         common.load_config(path)
+
+
+def test_h2h_league_ids_discovered_from_entry(fixture_dir):
+    entry = common.load_json(fixture_dir, common.FILE_ENTRY)
+    assert common.h2h_league_ids({"h2h_league_ids": []}, entry) == [1001, 1002]
+    assert common.h2h_league_ids({}, entry) == [1001, 1002]
+    assert common.h2h_league_ids({"h2h_league_ids": [1002]}, entry) == [1002]
+    assert common.h2h_league_ids({}, {"leagues": {"h2h": []}}) == []
