@@ -346,7 +346,7 @@ def h2h_standings(league_id: int):
         order = [33333, 44444, 55555, 66666, TEAM_ID, 22222]
     results = []
     for rank, e in enumerate(order, start=1):
-        pts = 18 - 3 * (rank - 1)
+        pts = 18 - 3 * (rank - 1)  # H2H league points, 3 per win
         results.append({
             "id": league_id * 10 + rank,
             "division": league_id,
@@ -355,15 +355,13 @@ def h2h_standings(league_id: int):
             "rank": rank,
             "last_rank": rank,
             "rank_sort": rank,
-            "total": 331 - 10 * (rank - 1),
+            "total": pts,
             "entry_name": H2H_ENTRIES[e][0],
             "matches_played": CURRENT_GW,
             "matches_won": pts // 3,
             "matches_drawn": 0,
             "matches_lost": CURRENT_GW - pts // 3,
-            "points_for": 331 - 10 * (rank - 1),
-            "points_against": 300,
-            "points_total": pts,
+            "points_for": 331 - 10 * (rank - 1),  # FPL points scored
         })
     name = "Office H2H" if league_id == 1001 else "Old Boys H2H"
     return {

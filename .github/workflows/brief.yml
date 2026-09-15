@@ -14,6 +14,11 @@ on:
   schedule:
     - cron: "0 7 * * 5" # Friday 07:00 UTC
   workflow_dispatch:
+    inputs:
+      skip_gate:
+        description: "Write and commit brief.md even if the gate is closed (test runs)"
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -49,12 +54,16 @@ jobs:
       # print. It writes the gate's JSON to data/gate.json and stops there,
       # exit 0, when there is no brief to write this week.
       - name: Fetch, gate, digest (make ci-brief; writes brief.md, prints nothing)
-        run: make ci-brief
+        env:
+          SKIP_GATE: ${{ inputs.skip_gate == true && '1' || '' }}
+        run: make ci-brief SKIP_GATE="$SKIP_GATE"
 
       - name: Read the gate
         id: gate
+        env:
+          SKIP_GATE: ${{ inputs.skip_gate == true && '1' || '' }}
         run: |
-          if grep -q '"proceed": true' data/gate.json; then
+          if grep -q '"proceed": true' data/gate.json || [ -n "$SKIP_GATE" ]; then
             echo "proceed=true" >> "$GITHUB_OUTPUT"
           else
             echo "proceed=false" >> "$GITHUB_OUTPUT"
@@ -70,6 +79,8 @@ jobs:
           if-no-files-found: error
           retention-days: 1
 
+  # Commits to the branch the workflow ran on: main for the Friday schedule,
+  # or whichever branch you picked when dispatching it by hand.
   commit:
     name: commit brief.md
     needs: build
@@ -78,10 +89,10 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Check out main
+      - name: Check out the run's branch
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          ref: main
+          ref: ${{ github.ref }}
 
       - name: Download brief.md
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
@@ -102,5 +113,5 @@ jobs:
           git config user.name "$bot"
           git config user.email "41898282+${bot}@users.noreply.github.com"
           git commit --quiet --message "brief: update for $(date -u +%Y-%m-%d)"
-          git push origin HEAD:main
+          git push origin "HEAD:${GITHUB_REF_NAME}"
           echo "committed brief.md ($(wc -c < brief.md) bytes)"

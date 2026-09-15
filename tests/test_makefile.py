@@ -80,3 +80,16 @@ def test_brief_stops_cleanly_when_gate_closed(workdir):
     assert r.returncode == 0
     assert "## Squad" not in r.stdout
     assert "gate closed" in r.stderr
+
+
+def test_ci_brief_skip_gate_writes_anyway(workdir):
+    env = {**os.environ, "BRIEF_NOW": "2026-09-10T07:00:00Z", "PYTHONPATH": str(ROOT)}
+    r = subprocess.run(
+        ["make", "--no-print-directory", "ci-brief", f"PY={workdir / 'py'}", "SKIP_GATE=1"],
+        cwd=workdir, env=env, capture_output=True, text=True,
+    )
+    assert r.returncode == 0, r.stderr
+    assert (workdir / "brief.md").exists()
+    assert '"proceed": false' in (workdir / "data" / "gate.json").read_text()
+    assert "SKIP_GATE set" in r.stderr
+    assert "## Squad" not in r.stdout

@@ -81,6 +81,16 @@ run against the fixture:
 python -m scripts.gate --config tests/fixtures/config.yaml --data-dir tests/fixtures --now 2026-09-25T07:00:00Z
 ```
 
+### Running it from GitHub instead
+
+You don't need Python locally. Actions › **brief** › *Run workflow*, pick
+the branch, and tick **skip_gate** if the next deadline is more than
+`max_days_to_deadline` away (otherwise the gate closes and nothing is
+written). The run commits `brief.md` to the branch you picked; open the
+file on GitHub to read it. The log shows only status lines.
+
+The Friday schedule runs on `main` with the gate in force.
+
 ### `brief.md` format
 
 The first line is an ISO timestamp. Then a `key: value` header block:
@@ -179,8 +189,9 @@ line to append to `state/decisions.md`.
    `make ci-brief` (fetch → gate → digest). If the gate is closed, the run
    ends there with no commit and no failure.
 2. Job `commit`, `contents: write`: downloads `brief.md` from the build job
-   and commits it to `main` only if it changed. The commit identity is
-   GitHub's public Actions bot account.
+   and commits it to the branch the run started from (`main` on schedule)
+   only if it changed. The commit identity is GitHub's public Actions bot
+   account.
 
 Set `max_days_to_deadline` so the Friday run lands inside the window for a
 normal Saturday deadline; 8 days also covers midweek and shifted rounds.
