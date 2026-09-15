@@ -34,12 +34,10 @@
     "matches_played": 6,
     "matches_won": 6,
     "player_name": "Third Manager",
-    "points_against": 300,
     "points_for": 331,
-    "points_total": 18,
     "rank": 1,
     "rank_sort": 1,
-    "total": 331
+    "total": 18
    },
    {
     "division": 1002,
@@ -52,12 +50,10 @@
     "matches_played": 6,
     "matches_won": 5,
     "player_name": "Fourth Manager",
-    "points_against": 300,
     "points_for": 321,
-    "points_total": 15,
     "rank": 2,
     "rank_sort": 2,
-    "total": 321
+    "total": 15
    },
    {
     "division": 1002,
@@ -70,12 +66,10 @@
     "matches_played": 6,
     "matches_won": 4,
     "player_name": "Fifth Manager",
-    "points_against": 300,
     "points_for": 311,
-    "points_total": 12,
     "rank": 3,
     "rank_sort": 3,
-    "total": 311
+    "total": 12
    },
    {
     "division": 1002,
@@ -88,12 +82,10 @@
     "matches_played": 6,
     "matches_won": 3,
     "player_name": "Sixth Manager",
-    "points_against": 300,
     "points_for": 301,
-    "points_total": 9,
     "rank": 4,
     "rank_sort": 4,
-    "total": 301
+    "total": 9
    },
    {
     "division": 1002,
@@ -106,12 +98,10 @@
     "matches_played": 6,
     "matches_won": 2,
     "player_name": "Fixture Manager",
-    "points_against": 300,
     "points_for": 291,
-    "points_total": 6,
     "rank": 5,
     "rank_sort": 5,
-    "total": 291
+    "total": 6
    },
    {
     "division": 1002,
@@ -124,12 +114,10 @@
     "matches_played": 6,
     "matches_won": 1,
     "player_name": "Second Manager",
-    "points_against": 300,
     "points_for": 281,
-    "points_total": 3,
     "rank": 6,
     "rank_sort": 6,
-    "total": 281
+    "total": 3
    }
   ]
  }

@@ -133,3 +133,19 @@ def test_h2h_leagues_discovered_when_config_empty(cfg, fixture_dir, now_near_dea
 def test_h2h_leagues_restricted_by_config(cfg, fixture_dir, now_near_deadline):
     text = digest.build_brief({**cfg, "h2h_league_ids": [1002]}, fixture_dir, now_near_deadline, None)
     assert "| Office H2H |" not in text and "| Old Boys H2H |" in text
+
+
+def test_h2h_unexpected_standings_shape_degrades_not_crashes(cfg, fixture_dir, now_near_deadline, tmp_path):
+    import json
+    import shutil
+
+    data = tmp_path / "data"
+    shutil.copytree(fixture_dir, data)
+    path = data / "h2h-standings-1001.json"
+    standings = json.loads(path.read_text())
+    for row in standings["standings"]["results"]:
+        row.pop("total", None)
+        row.pop("points_for", None)
+    path.write_text(json.dumps(standings))
+    text = digest.build_brief({**cfg, "h2h_league_ids": [1001]}, data, now_near_deadline, None)
+    assert "| Office H2H | 2 | - | Tiki Taka | 5 | - | - | - |" in text

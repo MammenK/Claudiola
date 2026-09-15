@@ -180,7 +180,7 @@ def h2h_section(cfg: dict, entry: dict, data_dir: Path, gw: int) -> tuple[list[s
             log.warning("h2h league %d: data missing, skipped", lid)
             continue
         league_name = (standings.get("league") or {}).get("name", str(lid))
-        by_entry = {r["entry"]: r for r in standings["standings"]["results"]}
+        by_entry = {r.get("entry"): r for r in (standings.get("standings") or {}).get("results", [])}
         me = by_entry.get(team_id)
 
         opp_id = None
@@ -194,15 +194,20 @@ def h2h_section(cfg: dict, entry: dict, data_dir: Path, gw: int) -> tuple[list[s
             break
         opp = by_entry.get(opp_id) if opp_id is not None else None
 
+        # Standings rows: `total` is the H2H league points (3 per win),
+        # `points_for` the FPL points scored. Use .get so an unexpected shape
+        # degrades to "-" rather than crashing the brief.
+        my_pts = me.get("total") if me else None
+        opp_pts = opp.get("total") if opp else None
         rows.append([
             league_name,
-            me["rank"] if me else "-",
-            me["points_total"] if me else "-",
-            opp["entry_name"] if opp else ("bye" if opp_id is None else str(opp_id)),
-            opp["rank"] if opp else "-",
-            opp["points_total"] if opp else "-",
-            (me["points_total"] - opp["points_total"]) if (me and opp) else "-",
-            opp["total"] if opp else "-",
+            me.get("rank", "-") if me else "-",
+            my_pts if my_pts is not None else "-",
+            opp.get("entry_name", str(opp_id)) if opp else ("bye" if opp_id is None else str(opp_id)),
+            opp.get("rank", "-") if opp else "-",
+            opp_pts if opp_pts is not None else "-",
+            (my_pts - opp_pts) if (my_pts is not None and opp_pts is not None) else "-",
+            opp.get("points_for", "-") if opp else "-",
         ])
     headers = ["League", "My rank", "My H2H pts", "GW opponent", "Opp rank", "Opp H2H pts", "Gap", "Opp FPL total"]
     return headers, rows
