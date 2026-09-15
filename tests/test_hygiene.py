@@ -68,7 +68,7 @@ def test_workflow_schedule_and_dispatch():
     wf = yaml.safe_load(WORKFLOW.read_text())
     on = wf.get("on") or wf.get(True)  # PyYAML parses a bare `on:` as boolean True
     assert on["schedule"] == [{"cron": "0 7 * * 5"}]
-    assert "workflow_dispatch" in on
+    assert on["workflow_dispatch"]["inputs"]["skip_gate"]["default"] is False
 
 
 def test_workflow_actions_pinned_to_sha():
