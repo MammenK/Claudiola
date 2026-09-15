@@ -1,7 +1,7 @@
-2026-09-15T01:48:38Z
+2026-09-15T06:57:06Z
 gameweek: 5
 deadline: 2026-09-18T17:30:00Z
-hours_to_deadline: 87.7
+hours_to_deadline: 82.5
 chips_remaining: wildcard, freehit, bboost, 3xc
 gameweeks_to_expiry: 14
 is_blank: false
@@ -12,7 +12,7 @@ is_double: false
 ## Entry
 | Overall pts | Overall rank | Last GW pts | Bank £m | Squad value £m |
 |---|---|---|---|---|
-| 233 | 6140139 | 68 | 0.8 | 100.4 |
+| 233 | 6140127 | 68 | 0.8 | 100.4 |
 
 ## Squad (picks as of GW4; FDR 1 easy … 5 hard)
 | # | Player | Pos | Team | £m | Status | ep_next | GW5 | GW6 | GW7 | GW8 | GW9 |
@@ -50,12 +50,12 @@ is_double: false
 |---|---|---|
 | 59.6 | 13.0 | 0.22 |
 
-## Captain candidates (top 3 by ep_next among available starters)
+## Captain candidates (top 3 by ep_next among available outfield starters)
 | Player | ep_next | Form | Last GW pts | GW5 |
 |---|---|---|---|---|
 | João Pedro | 8.2 | 8.2 | 12 | BRE(A)3 |
 | Haaland (V) | 8.2 | 8.2 | 9 | SUN(H)2 |
-| Raya | 7.2 | 7.2 | 14 | BHA(A)3 |
+| Tavernier | 7.2 | 7.2 | 8 | LIV(H)4 |
 
 ## Chips
 | Chip | Half 1 (GW1-19) | Half 2 (GW20-38) |
