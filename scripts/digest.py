@@ -164,7 +164,8 @@ def squad_rows(picks: dict, elements: dict, teams: dict, types: dict, fixtures: 
 
 
 def captain_candidates(rows: list[dict], n: int = 3) -> list[dict]:
-    fit = [r for r in rows if r["starter"] and r["raw_status"] == "a"]
+    """Top-n available outfield starters by ep_next. Goalkeepers are excluded."""
+    fit = [r for r in rows if r["starter"] and r["raw_status"] == "a" and r["pos"] != "GKP"]
     fit.sort(key=lambda r: (-float(r["ep_next"] or 0), -float(r["form"] or 0)))
     return fit[:n]
 
@@ -304,7 +305,7 @@ def build_brief(cfg: dict, data_dir: Path, now: datetime, overrides_path: Path |
         out.append("")
 
         # Captain candidates.
-        out.append("## Captain candidates (top 3 by ep_next among available starters)")
+        out.append("## Captain candidates (top 3 by ep_next among available outfield starters)")
         out.append(table(
             ["Player", "ep_next", "Form", "Last GW pts", "GW" + str(gw)],
             [[r["name"], fnum(r["ep_next"]), fnum(r["form"]), r["event_points"], r["fdr"][0]]

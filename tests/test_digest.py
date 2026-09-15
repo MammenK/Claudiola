@@ -149,3 +149,21 @@ def test_h2h_unexpected_standings_shape_degrades_not_crashes(cfg, fixture_dir, n
     path.write_text(json.dumps(standings))
     text = digest.build_brief({**cfg, "h2h_league_ids": [1001]}, data, now_near_deadline, None)
     assert "| Office H2H | 2 | - | Tiki Taka | 5 | - | - | - |" in text
+
+
+def test_captain_candidates_exclude_goalkeepers(cfg, fixture_dir, now_near_deadline, tmp_path):
+    import json
+    import shutil
+
+    data = tmp_path / "data"
+    shutil.copytree(fixture_dir, data)
+    path = data / "bootstrap-static.json"
+    bootstrap = json.loads(path.read_text())
+    for el in bootstrap["elements"]:
+        if el["web_name"] == "Raya":
+            el["ep_next"] = "99.0"
+    path.write_text(json.dumps(bootstrap))
+    text = digest.build_brief(cfg, data, now_near_deadline, None)
+    captains = text.split("## Captain candidates")[1].split("## Chips")[0]
+    assert "Raya" not in captains
+    assert "Haaland" in captains
