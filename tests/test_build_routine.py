@@ -13,7 +13,7 @@ ROUTINE = Path(__file__).resolve().parent.parent / "ROUTINE.md"
 def test_seed_modules_parse_in_order():
     mods = build_routine.load_modules(MODULES)
     assert [m["meta"]["name"] for m in mods] == [
-        "chip-decision", "squad-health", "h2h-context", "expiry-pressure",
+        "CHIP DECISION", "SQUAD HEALTH", "H2H CONTEXT", "EXPIRY PRESSURE",
     ]
     assert [m["meta"]["order"] for m in mods] == [1, 2, 3, 4]
     assert all(isinstance(m["meta"]["chip_independent"], bool) for m in mods)
@@ -29,6 +29,9 @@ def test_routine_reads_brief_over_raw_github():
     # the gate only needs the header keys
     for key in ("hours_to_deadline", "chips_remaining", "gameweeks_to_expiry", "is_blank", "is_double"):
         assert key in text
+    assert "M1 CHIP DECISION" in text and "M4 EXPIRY PRESSURE" in text
+    assert "STEP 0: GATE" in text and "STEP 2: OUTPUT" in text
+    assert "[USER]" not in text and "[ID]" not in text
 
 
 def test_new_module_slots_in_by_order(tmp_path):
@@ -39,8 +42,10 @@ def test_new_module_slots_in_by_order(tmp_path):
         "---\nname: early\ntrigger: never\nchip_independent: false\norder: 5\n---\n## Early\nbody\n"
     )
     text = build_routine.build_routine(tmp_path)
-    assert text.index("module: early") < text.index("module: late")
-    assert "**Trigger:** never" in text
+    assert text.index("M5 early") < text.index("M10 late")
+    assert "M5 early — trigger: never." in text
+    assert "M10 late — trigger: always. CHIP_INDEPENDENT." in text
+    assert "\n   body" in text
 
 
 def test_missing_frontmatter_key_is_an_error(tmp_path):
