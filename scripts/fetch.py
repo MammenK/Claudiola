@@ -25,6 +25,7 @@ from scripts.common import (
     data_dir_from_env,
     file_h2h_matches,
     file_h2h_standings,
+    h2h_league_ids,
     load_config,
     setup_logging,
 )
@@ -124,8 +125,9 @@ def fetch_all(cfg: dict, data_dir: Path, session=None, force: bool = False) -> N
         # Pre-season: the entry has no picks yet. Say so rather than write an empty file.
         log.warning("entry has no current_event; skipping picks")
 
-    for lid in cfg.get("h2h_league_ids") or []:
-        lid = int(lid)
+    league_ids = h2h_league_ids(cfg, entry)
+    log.info("h2h leagues: %d (%s)", len(league_ids), "from config" if cfg.get("h2h_league_ids") else "from entry")
+    for lid in league_ids:
         fetch_to_file(
             session,
             f"/leagues-h2h-matches/league/{lid}/?page=1&entry={team_id}",

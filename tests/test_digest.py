@@ -123,3 +123,13 @@ def test_missing_picks_is_handled(cfg, fixture_dir, now_near_deadline, tmp_path)
     text = digest.build_brief(cfg, data, now_near_deadline, None)
     assert "no picks available yet" in text
     assert text.startswith("2026-09-25T07:00:00Z\ngameweek: 7\n")
+
+
+def test_h2h_leagues_discovered_when_config_empty(cfg, fixture_dir, now_near_deadline):
+    text = digest.build_brief({**cfg, "h2h_league_ids": []}, fixture_dir, now_near_deadline, None)
+    assert "| Office H2H |" in text and "| Old Boys H2H |" in text
+
+
+def test_h2h_leagues_restricted_by_config(cfg, fixture_dir, now_near_deadline):
+    text = digest.build_brief({**cfg, "h2h_league_ids": [1002]}, fixture_dir, now_near_deadline, None)
+    assert "| Office H2H |" not in text and "| Old Boys H2H |" in text

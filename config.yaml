@@ -4,9 +4,11 @@
 
 # Your FPL entry id: the number in the URL on your "Points" page
 # (https://fantasy.premierleague.com/entry/<team_id>/event/<gw>).
-team_id: 0
+team_id: 6324793
 
-# Head-to-head league ids to report on (the number in the league URL).
+# Head-to-head leagues to report on. Leave empty to include every H2H league
+# the entry belongs to (discovered from the public entry endpoint). List ids
+# (the number in the league URL) to restrict it.
 h2h_league_ids: []
 
 # The last gameweek of the first half of the season. First-half chips
