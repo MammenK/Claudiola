@@ -157,31 +157,32 @@ permissions, SHA-pinned actions and no printing commands in the workflow.
 
    ```
    ---
-   name: name
+   name: NAME                 # rendered as "M<order> NAME"
    trigger: always            # or a condition on the brief header, in words
-   chip_independent: true     # false if it should assume module 01's chip verdict
+   chip_independent: true     # true if it should run even with no chips left
    order: 5                   # unique; modules run in ascending order
    ---
-   ## NN · Title
-
-   What the routine should look at, in what order, and what to output.
+   What the routine should look at and what to produce, in a few lines.
    ```
 
 2. Keep the body to what the routine should *decide* and *output*. The
    digest supplies data; the module supplies the questions.
 3. Run `make routine` and commit both the module and the regenerated
    `ROUTINE.md`. The tests fail if `ROUTINE.md` is stale.
+4. Paste the new `ROUTINE.md` into the Claude routine's prompt.
 
-Files in `modules/` that start with `_` are fixed parts of the routine
-(`_preamble.md`, `_postamble.md`), not modules.
+Files in `modules/` that start with `_` are fixed parts of the prompt
+(`_preamble.md` holds the gate, `_postamble.md` the output format), not
+modules.
 
 ## The routine
 
-`ROUTINE.md` is the prompt. Point a Claude routine at it (or paste it). It
-fetches `brief.md` and `state/decisions.md` from
-`https://raw.githubusercontent.com/mammenk/claudiola/main/`, checks the
-header, runs the modules in order, and ends with a verdict table plus one
-line to append to `state/decisions.md`.
+`ROUTINE.md` is the prompt, verbatim. Paste it into a Claude routine
+scheduled after the Friday job (08:00 UTC is safe). It fetches `brief.md`
+and `state/decisions.md` from
+`https://raw.githubusercontent.com/mammenk/claudiola/main/`, gates on the
+header, runs the modules in order, and ends with a verdict plus one row to
+append to `state/decisions.md`.
 
 ## How the weekly run works
 
