@@ -19,6 +19,7 @@ case "$2" in
   scripts.fetch)  echo "stub fetch" >&2; exit 0 ;;
   scripts.gate)   exec {py} -m scripts.gate --config {cfg} --data-dir {data} --now "$BRIEF_NOW" ;;
   scripts.digest) exec {py} -m scripts.digest --config {cfg} --data-dir {data} --now "$BRIEF_NOW" --out {out} --overrides {ov} ;;
+  scripts.pool)   exec {py} -m scripts.pool --data-dir {data} --out {pool} ;;
   *) exec {py} "$@" ;;
 esac
 """
@@ -36,6 +37,7 @@ def workdir(tmp_path):
         data=FIXTURES,
         out=tmp_path / "brief.md",
         ov=tmp_path / "overrides.md",
+        pool=tmp_path / "pool.csv",
     ))
     stub.chmod(stub.stat().st_mode | stat.S_IEXEC)
     return tmp_path
@@ -53,6 +55,7 @@ def test_ci_brief_writes_but_never_prints(workdir):
     r = run_make(workdir, "ci-brief", "2026-09-25T07:00:00Z")
     assert r.returncode == 0, r.stderr
     assert (workdir / "brief.md").read_text().startswith("2026-09-25T07:00:00Z\n")
+    assert (workdir / "pool.csv").read_text().startswith("id,web_name,team,pos,price,")
     # the gate JSON goes to data/gate.json and the digest to brief.md; stdout has neither
     assert "gameweek: 7" not in r.stdout and "## Squad" not in r.stdout
     assert '"proceed"' not in r.stdout
