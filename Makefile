@@ -15,7 +15,7 @@
 PY ?= python3
 GATE_JSON = data/gate.json
 
-.PHONY: brief ci-brief fetch fetch-force gate digest routine check-routine test clean
+.PHONY: brief ci-brief fetch fetch-force gate digest pool routine check-routine test clean
 
 brief: ci-brief
 	@if grep -q '"proceed": true' $(GATE_JSON) || [ -n "$(SKIP_GATE)" ]; then cat brief.md; fi
@@ -23,10 +23,10 @@ brief: ci-brief
 ci-brief: fetch
 	@mkdir -p data
 	@if $(PY) -m scripts.gate > $(GATE_JSON); then \
-		$(PY) -m scripts.digest; \
+		$(PY) -m scripts.digest && $(PY) -m scripts.pool; \
 	elif [ -n "$(SKIP_GATE)" ]; then \
 		echo "brief: gate closed but SKIP_GATE set, writing anyway." >&2; \
-		$(PY) -m scripts.digest; \
+		$(PY) -m scripts.digest && $(PY) -m scripts.pool; \
 	else \
 		echo "brief: gate closed, nothing to do." >&2; \
 	fi
@@ -43,6 +43,9 @@ gate:
 digest:
 	$(PY) -m scripts.digest
 
+pool:
+	$(PY) -m scripts.pool
+
 routine:
 	$(PY) -m scripts.build_routine
 
@@ -53,4 +56,4 @@ test:
 	$(PY) -m pytest -q
 
 clean:
-	rm -f data/*.json brief.md
+	rm -f data/*.json brief.md pool.csv

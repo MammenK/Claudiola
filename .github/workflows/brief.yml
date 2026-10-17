@@ -70,12 +70,14 @@ jobs:
             echo "Gate closed: no brief this week. Stopping without a commit."
           fi
 
-      - name: Upload brief.md for the commit job
+      - name: Upload brief.md and pool.csv for the commit job
         if: steps.gate.outputs.proceed == 'true'
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: brief
-          path: brief.md
+          path: |
+            brief.md
+            pool.csv
           if-no-files-found: error
           retention-days: 1
 
@@ -94,15 +96,15 @@ jobs:
         with:
           ref: ${{ github.ref }}
 
-      - name: Download brief.md
+      - name: Download brief.md and pool.csv
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         with:
           name: brief
           path: .
 
-      - name: Commit brief.md if it changed
+      - name: Commit brief.md and pool.csv if they changed
         run: |
-          git add brief.md
+          git add brief.md pool.csv
           if git diff --cached --quiet; then
             echo "brief.md unchanged; nothing to commit."
             exit 0
