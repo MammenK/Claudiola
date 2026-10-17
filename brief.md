@@ -1,7 +1,7 @@
-2026-10-16T12:07:51Z
+2026-10-17T07:17:11Z
 gameweek: 7
 deadline: 2026-10-17T10:00:00Z
-hours_to_deadline: 21.9
+hours_to_deadline: 2.7
 chips_remaining: wildcard, freehit, bboost, 3xc
 gameweeks_to_expiry: 12
 is_blank: false
@@ -12,7 +12,7 @@ is_double: false
 ## Entry
 | Overall pts | Overall rank | Last GW pts | Bank £m | Squad value £m |
 |---|---|---|---|---|
-| 324 | 6972456 | 57 | 0.1 | 100.6 |
+| 324 | 6972418 | 57 | 0.1 | 100.6 |
 
 ## Squad (picks as of GW6; FDR 1 easy … 5 hard)
 | # | Player | Pos | Team | £m | Status | ep_next | GW7 | GW8 | GW9 | GW10 | GW11 |
@@ -24,13 +24,13 @@ is_double: false
 | 5 | Davis | DEF | IPS | 4.0 | OK | 1.5 | MCI(A)5 | NFO(H)3 | HUL(A)2 | BOU(H)3 | TOT(A)3 |
 | 6 | McAtee | MID | NFO | 5.5 | OK | 3.0 | ARS(H)4 | IPS(A)2 | BRE(A)3 | MCI(H)4 | BOU(A)3 |
 | 7 | Rogers | MID | CHE | 7.9 | OK | 5.5 | EVE(A)3 | TOT(H)2 | MUN(H)4 | SUN(A)3 | LEE(H)3 |
-| 8 | B.Fernandes | MID | MUN | 11.9 | OK | 1.5 | LEE(A)3 | BOU(H)3 | CHE(A)4 | AVL(H)3 | LIV(A)4 |
-| 9 | M.Sangaré | MID | BRE | 5.6 | OK | 0.5 | LIV(H)4 | HUL(A)2 | NFO(H)3 | BHA(A)4 | EVE(H)3 |
-| 10 | Haaland (V) | FWD | MCI | 15.6 | OK | 6.0 | IPS(H)2 | AVL(A)3 | BHA(H)3 | NFO(A)3 | FUL(H)2 |
+| 8 | B.Fernandes | MID | MUN | 11.8 | OK | 1.5 | LEE(A)3 | BOU(H)3 | CHE(A)4 | AVL(H)3 | LIV(A)4 |
+| 9 | M.Sangaré | MID | BRE | 5.5 | OK | 0.5 | LIV(H)4 | HUL(A)2 | NFO(H)3 | BHA(A)4 | EVE(H)3 |
+| 10 | Haaland (V) | FWD | MCI | 15.7 | OK | 6.0 | IPS(H)2 | AVL(A)3 | BHA(H)3 | NFO(A)3 | FUL(H)2 |
 | 11 | João Pedro | FWD | CHE | 7.8 | OK | 6.0 | EVE(A)3 | TOT(H)2 | MUN(H)4 | SUN(A)3 | LEE(H)3 |
 | 12 | Kelleher | GKP | BRE | 5.0 | OK | 4.0 | LIV(H)4 | HUL(A)2 | NFO(H)3 | BHA(A)4 | EVE(H)3 |
-| 13 | O.Richards | DEF | NFO | 4.0 | OK | 0.0 | ARS(H)4 | IPS(A)2 | BRE(A)3 | MCI(H)4 | BOU(A)3 |
-| 14 | Szoboszlai (C) | MID | LIV | 6.9 | DOUBT 25% | 0.2 | BRE(A)3 | BHA(H)3 | ARS(H)4 | CRY(A)3 | MUN(H)4 |
+| 13 | O.Richards | DEF | NFO | 3.9 | OK | 0.0 | ARS(H)4 | IPS(A)2 | BRE(A)3 | MCI(H)4 | BOU(A)3 |
+| 14 | Szoboszlai (C) | MID | LIV | 6.8 | DOUBT 25% | 0.2 | BRE(A)3 | BHA(H)3 | ARS(H)4 | CRY(A)3 | MUN(H)4 |
 | 15 | Brobbey | FWD | SUN | 5.7 | OK | 8.5 | BOU(A)3 | LEE(H)3 | COV(A)2 | CHE(H)4 | AVL(A)3 |
 
 ## Flags
