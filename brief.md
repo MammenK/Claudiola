@@ -1,61 +1,61 @@
-2026-11-20T15:55:59Z
-gameweek: 11
-deadline: 2026-11-21T11:00:00Z
-hours_to_deadline: 19.1
+2026-11-27T17:16:24Z
+gameweek: 12
+deadline: 2026-11-27T18:30:00Z
+hours_to_deadline: 1.2
 chips_remaining: freehit, bboost, 3xc
-gameweeks_to_expiry: 8
+gameweeks_to_expiry: 7
 is_blank: false
 is_double: false
 
-# FPL brief — GW11 — Full Metal Jacquet
+# FPL brief — GW12 — Full Metal Jacquet
 
 ## Entry
 | Overall pts | Overall rank | Last GW pts | Bank £m | Squad value £m |
 |---|---|---|---|---|
-| 568 | 4509912 | 67 | 1.9 | 101.1 |
+| 617 | 3789792 | 49 | 1.9 | 101.7 |
 
-## Squad (picks as of GW10; FDR 1 easy … 5 hard)
-| # | Player | Pos | Team | £m | Status | ep_next | GW11 | GW12 | GW13 | GW14 | GW15 |
+## Squad (picks as of GW11; FDR 1 easy … 5 hard)
+| # | Player | Pos | Team | £m | Status | ep_next | GW12 | GW13 | GW14 | GW15 | GW16 |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | Rushworth | GKP | COV | 4.5 | OK | 2.0 | CRY(H)2 | LEE(A)3 | IPS(H)2 | MUN(A)3 | AVL(H)3 |
-| 2 | Van Hecke | DEF | TOT | 5.1 | OK | 8.7 | IPS(H)2 | SUN(A)3 | FUL(H)2 | ARS(H)4 | HUL(A)2 |
-| 3 | Calafiori | DEF | ARS | 5.9 | OK | 4.3 | NEW(A)3 | MCI(H)4 | BRE(A)4 | TOT(A)3 | BOU(H)3 |
-| 4 | Bogle | DEF | LEE | 4.8 | OK | 4.3 | CHE(A)4 | COV(H)2 | MCI(A)5 | IPS(H)2 | LIV(A)4 |
-| 5 | Groß | MID | BHA | 6.3 | OK | 4.0 | HUL(A)2 | NEW(H)3 | BOU(A)4 | NFO(A)2 | EVE(H)3 |
-| 6 | Tavernier (V) | MID | BOU | 6.7 | OK | 5.3 | NFO(H)3 | FUL(A)3 | BHA(H)4 | HUL(H)2 | ARS(A)5 |
-| 7 | E.Le Fée | MID | SUN | 5.7 | OK | 7.3 | AVL(A)3 | TOT(H)3 | LIV(A)4 | NEW(A)3 | NFO(H)3 |
-| 8 | Eze | MID | ARS | 6.2 | OK | 1.3 | NEW(A)3 | MCI(H)4 | BRE(A)4 | TOT(A)3 | BOU(H)3 |
-| 9 | Isak | FWD | LIV | 9.3 | OK | 6.3 | MUN(H)3 | EVE(A)3 | SUN(H)2 | CHE(A)4 | LEE(H)3 |
-| 10 | N.Jackson | FWD | AVL | 7.2 | OK | 11.0 | SUN(H)2 | IPS(A)2 | EVE(H)3 | CRY(H)2 | COV(A)2 |
-| 11 | Haaland (C) | FWD | MCI | 15.8 | OK | 4.0 | FUL(H)2 | ARS(A)5 | LEE(H)3 | BRE(A)4 | CHE(H)4 |
-| 12 | Kelleher | GKP | BRE | 5.0 | OK | 3.7 | EVE(H)3 | MUN(A)3 | ARS(H)4 | MCI(H)4 | FUL(A)3 |
-| 13 | Mbeumo | MID | MUN | 7.9 | OK | 1.7 | LIV(A)4 | BRE(H)3 | NEW(A)3 | COV(H)2 | CRY(A)2 |
-| 14 | De Cuyper | DEF | BHA | 5.5 | OK | 5.3 | HUL(A)2 | NEW(H)3 | BOU(A)4 | NFO(A)2 | EVE(H)3 |
-| 15 | Thomas | DEF | COV | 4.0 | DOUBT 75% | 0.2 | CRY(H)2 | LEE(A)3 | IPS(H)2 | MUN(A)3 | AVL(H)3 |
+| 1 | Rushworth | GKP | COV | 4.5 | OK | 2.0 | LEE(A)3 | IPS(H)2 | MUN(A)3 | AVL(H)3 | BOU(A)4 |
+| 2 | Van Hecke | DEF | TOT | 5.2 | OK | 8.3 | SUN(A)3 | FUL(H)2 | ARS(H)4 | HUL(A)2 | LIV(A)4 |
+| 3 | Calafiori | DEF | ARS | 5.9 | OK | 4.3 | MCI(H)4 | BRE(A)4 | TOT(A)3 | BOU(H)3 | MUN(H)3 |
+| 4 | Bogle | DEF | LEE | 4.8 | OK | 4.0 | COV(H)2 | MCI(A)5 | IPS(H)2 | LIV(A)4 | FUL(H)2 |
+| 5 | Groß | MID | BHA | 6.3 | OK | 5.3 | NEW(H)3 | BOU(A)4 | NFO(A)2 | EVE(H)3 | IPS(H)2 |
+| 6 | Tavernier (V) | MID | BOU | 6.8 | OK | 4.7 | FUL(A)3 | BHA(H)4 | HUL(H)2 | ARS(A)5 | COV(H)2 |
+| 7 | E.Le Fée | MID | SUN | 5.7 | OK | 7.3 | TOT(H)3 | LIV(A)4 | NEW(A)3 | NFO(H)3 | CRY(H)2 |
+| 8 | Eze | MID | ARS | 6.2 | OK | 3.7 | MCI(H)4 | BRE(A)4 | TOT(A)3 | BOU(H)3 | MUN(H)3 |
+| 9 | Isak | FWD | LIV | 9.4 | OK | 5.0 | EVE(A)3 | SUN(H)2 | CHE(A)4 | LEE(H)3 | TOT(H)3 |
+| 10 | N.Jackson | FWD | AVL | 7.3 | OK | 7.3 | IPS(A)2 | EVE(H)3 | CRY(H)2 | COV(A)2 | CHE(A)4 |
+| 11 | Haaland (C) | FWD | MCI | 15.7 | OK | 2.0 | ARS(A)5 | LEE(H)3 | BRE(A)4 | CHE(H)4 | HUL(H)2 |
+| 12 | Kelleher | GKP | BRE | 5.0 | OK | 5.0 | MUN(A)3 | ARS(H)4 | MCI(H)4 | FUL(A)3 | NEW(H)3 |
+| 13 | Mbeumo | MID | MUN | 7.8 | OK | 1.3 | BRE(H)3 | NEW(A)3 | COV(H)2 | CRY(A)2 | ARS(A)5 |
+| 14 | De Cuyper | DEF | BHA | 5.6 | OK | 5.3 | NEW(H)3 | BOU(A)4 | NFO(A)2 | EVE(H)3 | IPS(H)2 |
+| 15 | Thomas | DEF | COV | 4.0 | OK | 1.0 | LEE(A)3 | IPS(H)2 | MUN(A)3 | AVL(H)3 | BOU(A)4 |
 
 ## Flags
 | Player | Status | News |
 |---|---|---|
-| Thomas | DOUBT 75% | Calf injury - 75% chance of playing |
+| none | | |
 
 ## Bench strength (ep_next = FPL expected points next GW)
-| Bench | Pos | ep_next | GW11 |
+| Bench | Pos | ep_next | GW12 |
 |---|---|---|---|
-| Kelleher | GKP | 3.7 | EVE(H)3 |
-| Mbeumo | MID | 1.7 | LIV(A)4 |
-| De Cuyper | DEF | 5.3 | HUL(A)2 |
-| Thomas | DEF | 0.2 | CRY(H)2 |
+| Kelleher | GKP | 5.0 | MUN(A)3 |
+| Mbeumo | MID | 1.3 | BRE(H)3 |
+| De Cuyper | DEF | 5.3 | NEW(H)3 |
+| Thomas | DEF | 1.0 | LEE(A)3 |
 
 | XI ep_next | Bench ep_next | Bench / XI |
 |---|---|---|
-| 58.5 | 10.9 | 0.19 |
+| 53.9 | 12.6 | 0.23 |
 
 ## Captain candidates (top 3 by ep_next among available outfield starters)
-| Player | ep_next | Form | Last GW pts | GW11 |
+| Player | ep_next | Form | Last GW pts | GW12 |
 |---|---|---|---|---|
-| N.Jackson | 11.0 | 11.0 | 11 | SUN(H)2 |
-| Van Hecke | 8.7 | 8.7 | 4 | IPS(H)2 |
-| E.Le Fée | 7.3 | 7.3 | 11 | AVL(A)3 |
+| Van Hecke | 8.3 | 8.3 | 6 | SUN(A)3 |
+| E.Le Fée | 7.3 | 7.3 | 3 | TOT(H)3 |
+| N.Jackson | 7.3 | 7.3 | 2 | IPS(A)2 |
 
 ## Chips
 | Chip | Half 1 (GW1-19) | Half 2 (GW20-38) |
@@ -65,10 +65,10 @@ is_double: false
 | Bench Boost | available | not yet |
 | Triple Captain | available | not yet |
 
-## H2H (GW11)
+## H2H (GW12)
 | League | My rank | My H2H pts | GW opponent | Opp rank | Opp H2H pts | Gap | Opp FPL total |
 |---|---|---|---|---|---|---|---|
-| Football banter | 7 | 11 | lakshmi Yamal | 5 | 15 | -4 | 589 |
+| Football banter | 7 | 14 | Chips&Dip | 3 | 18 | -4 | 637 |
 
 ## Overrides
 _none (state/overrides.md not present)_
